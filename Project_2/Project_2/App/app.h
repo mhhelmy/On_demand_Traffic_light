@@ -16,6 +16,10 @@
 #include "../ECUAL/Timer_Abstraction_layer/timer_abstraction_layer.h"
 #include "../Utilities/interrupt.h"
 
+/************************************************************************/
+/* Types                                      */
+/************************************************************************/
+
 typedef enum _SYSTEM_MODE
 {
 	SYSTEM_MODE_NORMAL,
@@ -35,8 +39,9 @@ typedef enum _CAR_TRAFFIC_LIGHT_STATE
 } T_CAR_TRAFFIC_LIGHT_STATE_E;
 
 
-
-
+/************************************************************************/
+/* Functions declarations                      */
+/************************************************************************/
 
 
 // init function for the application

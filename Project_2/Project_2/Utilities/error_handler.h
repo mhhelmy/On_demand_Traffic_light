@@ -2,12 +2,16 @@
  * error_handler.h
  *
  * Created: 11/11/2022 21:07:36
- *  Author: mhhel
+ * Author: Mohamed Khalil
  */ 
 
 
 #ifndef ERROR_HANDLER_H_
 #define ERROR_HANDLER_H_
+
+/************************************************************************/
+/* Types                                      */
+/************************************************************************/
 
 /* enum defines the different types of errors returning from the functions of the project */
 typedef enum _ERROR_ID

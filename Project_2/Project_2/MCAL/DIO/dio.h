@@ -14,8 +14,15 @@
 #include "../../Utilities/bitwise_operations.h"
 #include "../../Utilities/error_handler.h"
 
+/************************************************************************/
+/* Defines                                     */
+/************************************************************************/
+
 #define MAX_NUM_PINS_PER_PORT (8)
 
+/************************************************************************/
+/* Types                                      */
+/************************************************************************/
 // pin state
 typedef enum _DIO_PIN_STATE
 {
@@ -41,6 +48,9 @@ typedef enum _DIO_PORT_ID
 
 } T_DIO_PORT_ID_E;
 
+/************************************************************************/
+/* Functions declarations                      */
+/************************************************************************/
 // initialize the micro controller pin to be in or out
 T_ERROR_ID_E dio_pin_direction_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_DIO_PIN_DIRECTION_E pin_direction);
 

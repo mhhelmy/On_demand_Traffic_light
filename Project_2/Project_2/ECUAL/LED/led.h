@@ -2,7 +2,7 @@
  * led.h
  *
  * Created: 05/11/2022 00:27:38
- *  Author: mhhel
+ * Author: Mohamed Khalil
  */ 
 
 
@@ -12,12 +12,19 @@
 #include "../../Utilities/basetypes.h"
 #include "../../MCAL/DIO/dio.h"
 
+/************************************************************************/
+/* Types                                      */
+/************************************************************************/
 typedef enum _LED_STATE 
 {
 	LED_STATE_OFF = 0,
 	LED_STATE_ON = 1
 } T_LED_STATE_E;
 
+
+/************************************************************************/
+/* Functions declarations                      */
+/************************************************************************/
 // initialize the led in the beginning of the program
 T_ERROR_ID_E led_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number);
 

@@ -6,6 +6,9 @@
  */ 
 
 #include "timer.h"
+/************************************************************************/
+/* Functions declarations                      */
+/************************************************************************/
 
 // TODO: base timer calculation on the system freq. Currently I assume 1 MHZ 
 //uint32_t g_system_freq;
@@ -48,6 +51,8 @@ void timer_delay (T_TIMER_ID_E timer_id, uint16_t timer_delay_in_ms)
 {
 	// TODO: base timer calculation on the system freq. Currently I assume 1 MHZ 
 	
+  
+  // variable defines how many full cycles are needed to generate the needed delay
 	uint16_t timer_full_cycles;
 	uint8_t timer_remaining_cycles;
 	

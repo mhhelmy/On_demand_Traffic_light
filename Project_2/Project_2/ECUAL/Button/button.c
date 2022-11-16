@@ -7,6 +7,10 @@
 
 #include "button.h"
 
+/************************************************************************/
+/* Functions definitions                        */
+/************************************************************************/
+
 // initialize the button in the beginning of the program
 T_ERROR_ID_E button_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number)
 {

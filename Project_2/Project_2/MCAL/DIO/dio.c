@@ -6,12 +6,22 @@
  */ 
 #include "dio.h"
 
+/************************************************************************/
+/* Functions definitions                        */
+/************************************************************************/
+
 // initialize the micro controller pin to be in or out
 T_ERROR_ID_E dio_pin_direction_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_DIO_PIN_DIRECTION_E pin_direction)
 {
 	T_ERROR_ID_E error_id = ERROR_ID_NO_ERROR;
   
+  // validate the input
+  if (pin_number >= MAX_NUM_PINS_PER_PORT)
+  {
+    return ERROR_ID_INVALID_INPUT_ARGUMENT;
+  }
   
+  // switch over ports to initialize pin direction
 	switch (port_id)
 	{
 	  case DIO_PORT_ID_A:
@@ -92,6 +102,14 @@ T_ERROR_ID_E dio_pin_direction_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number,
 T_ERROR_ID_E dio_pin_state_write(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_DIO_PIN_STATE_E pin_state)
 {
 	T_ERROR_ID_E error_id = ERROR_ID_NO_ERROR;
+  
+  // validate the input
+  if (pin_number >= MAX_NUM_PINS_PER_PORT)
+  {
+    return ERROR_ID_INVALID_INPUT_ARGUMENT;
+  }
+  
+  // switch over ports to write over the pin
 	switch (port_id)
 	{
 		case DIO_PORT_ID_A:
@@ -172,8 +190,17 @@ T_ERROR_ID_E dio_pin_state_write(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_
 // read input or output current pin state
 T_ERROR_ID_E dio_pin_state_read(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_DIO_PIN_STATE_E* p_pin_state)
 {
+  uint8_t raw_pin_state;
 	T_ERROR_ID_E error_id = ERROR_ID_NO_ERROR;
-	uint8_t raw_pin_state;
+  
+  // validate the input
+  if (pin_number >= MAX_NUM_PINS_PER_PORT)
+  {
+    return ERROR_ID_INVALID_INPUT_ARGUMENT;
+  }
+  
+  
+  // switch over ports to read the pin state
 		switch (port_id)
 		{
 			case DIO_PORT_ID_A:
@@ -235,6 +262,14 @@ T_ERROR_ID_E dio_pin_state_read(T_DIO_PORT_ID_E port_id, uint8_t pin_number, T_D
 T_ERROR_ID_E dio_pin_state_toggle(T_DIO_PORT_ID_E port_id, uint8_t pin_number)
 {
 	T_ERROR_ID_E error_id = ERROR_ID_NO_ERROR;
+
+  // validate the input
+  if (pin_number >= MAX_NUM_PINS_PER_PORT)
+  {
+    return ERROR_ID_INVALID_INPUT_ARGUMENT;
+  }
+  
+  // switch over the Ports and Pins to toogle the requested pin
 	switch (port_id)
 	{
 		case DIO_PORT_ID_A:

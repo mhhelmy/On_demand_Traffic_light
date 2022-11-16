@@ -2,7 +2,7 @@
  * led.c
  *
  * Created: 05/11/2022 00:27:26
- *  Author: mhhel
+ * Author: Mohamed Khalil
  */ 
 
 #include "led.h"
@@ -11,6 +11,10 @@
 // initialize all lamps to the 0 state
 T_LED_STATE_E g_led_state_db [DIO_PORT_ID_MAX][MAX_NUM_PINS_PER_PORT] = {0};
 
+
+/************************************************************************/
+/* Functions definitions                        */
+/************************************************************************/
 // initialize the led in the beginning of the program
 T_ERROR_ID_E led_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number)
 {

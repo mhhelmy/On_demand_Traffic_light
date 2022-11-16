@@ -2,15 +2,21 @@
  * timer_abstraction_layer.c
  *
  * Created: 11/11/2022 21:15:02
- *  Author: mhhel
+ * Author: Mohamed Khalil
  */ 
 
 #include "timer_abstraction_layer.h"
 
 uint8_t g_available_timer_db[TIMER_ID_MAX]={0};
-  
+
+
+/************************************************************************/
+/* Functions definitions                        */
+/************************************************************************/
+
 T_ERROR_ID_E timer_al_init(uint8_t system_freq_in_MHz, T_TIMER_ID_E timer_id, T_TIMER_MODE_E timer_mode)
 {
+  // init the requested timer
   timer_init(system_freq_in_MHz, timer_id, timer_mode);
   // mark this timer as availble
   g_available_timer_db[timer_id] = 1;

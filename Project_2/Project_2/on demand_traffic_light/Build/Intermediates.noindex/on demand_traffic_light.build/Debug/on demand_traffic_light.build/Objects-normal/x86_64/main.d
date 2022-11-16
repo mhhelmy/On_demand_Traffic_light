@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/main.c \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/main.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/DIO/dio.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/DIO/../registers.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/DIO/../../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/DIO/../../Utilities/bitwise_operations.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/MCAL/DIO/../../Utilities/error_handler.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/Utilities/bitwise_operations.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/app.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../MCAL/DIO/dio.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Button/button.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Button/../../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Button/../../Utilities/error_handler.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Button/../../MCAL/DIO/dio.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/LED/led.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/LED/../../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/LED/../../MCAL/DIO/dio.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../MCAL/timer/timer.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../MCAL/timer/../../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../MCAL/timer/../../Utilities/bitwise_operations.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../MCAL/timer/../registers.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Timer_Abstraction_layer/timer_abstraction_layer.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Timer_Abstraction_layer/../../Utilities/error_handler.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Timer_Abstraction_layer/../../Utilities/basetypes.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../ECUAL/Timer_Abstraction_layer/../../MCAL/timer/timer.h \
+  /Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/./App/../Utilities/interrupt.h

@@ -12,12 +12,21 @@
 #include "../../Utilities/error_handler.h"
 #include "../../MCAL/DIO/dio.h"
 
+/************************************************************************/
+/* Types                                      */
+/************************************************************************/
+
+
 typedef enum _BUTTON_STATE
 {
 	BUTTON_STATE_RELEASED = 0,
 	BUTTON_STATE_PRESSED = 1
 } T_BUTTON_STATE_E;
 
+
+/************************************************************************/
+/* Functions declarations                      */
+/************************************************************************/
 // initialize the button in the beginning of the program
 T_ERROR_ID_E button_init(T_DIO_PORT_ID_E port_id, uint8_t pin_number);
 

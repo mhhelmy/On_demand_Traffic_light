@@ -1,0 +1,56 @@
+{
+  "_buildCommand2" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "ad4d89490a4ddb4bb9e5b89ca02d45f09b23a8ae054df313e4073ce3c8427836"
+    }
+  ],
+  "containerPath" : "/Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/on demand_traffic_light/on demand_traffic_light.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx13.0",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "x86_64h",
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/on demand_traffic_light/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/on demand_traffic_light/Build/Products",
+      "derivedDataPath" : "/Users/mohamedkhalil/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/mohamedkhalil/Library/Developer/Xcode/DerivedData/on_demand_traffic_light-dubyzmonykseyydvimtddkfghacl/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/mohamedkhalil/Library/Developer/Xcode/DerivedData/on_demand_traffic_light-dubyzmonykseyydvimtddkfghacl/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/mohamedkhalil/builds/repos/On_demand_Traffic_light/Project_2/Project_2/on demand_traffic_light/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

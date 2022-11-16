@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+on demand_traffic_light in on demand_traffic_light, no dependencies

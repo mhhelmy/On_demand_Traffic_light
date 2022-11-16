@@ -9,23 +9,24 @@
 
 // Global defines
 const T_DIO_PORT_ID_E CROSS_WALK_BUTTON_PORT_ID = DIO_PORT_ID_D;
-
-const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_GREEN_PORT_ID = DIO_PORT_ID_B;
-const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_YELLOW_PORT_ID = DIO_PORT_ID_B;
-const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_RED_PORT_ID = DIO_PORT_ID_B;
-
-const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_GREEN_PORT_ID = DIO_PORT_ID_A;
-const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID = DIO_PORT_ID_A;
-const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_RED_PORT_ID = DIO_PORT_ID_A;
-
 const uint8_t CROSS_WALK_BUTTON_PIN_ID = 2;
 
+const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_GREEN_PORT_ID = DIO_PORT_ID_B;
 const uint8_t CROSS_WALK_LIGHT_GREEN_PIN_ID = 0;
+
+const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_YELLOW_PORT_ID = DIO_PORT_ID_B;
 const uint8_t CROSS_WALK_LIGHT_YELLOW_PIN_ID = 1;
+
+const T_DIO_PORT_ID_E CROSS_WALK_LIGHT_RED_PORT_ID = DIO_PORT_ID_B;
 const uint8_t CROSS_WALK_LIGHT_RED_PIN_ID = 2;
 
+const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_GREEN_PORT_ID = DIO_PORT_ID_A;
 const uint8_t CAR_TRAFFIC_LIGHT_GREEN_PIN_ID = 0;
+
+const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID = DIO_PORT_ID_A;
 const uint8_t CAR_TRAFFIC_LIGHT_YELLOW_PIN_ID = 1;
+
+const T_DIO_PORT_ID_E CAR_TRAFFIC_LIGHT_RED_PORT_ID = DIO_PORT_ID_A;
 const uint8_t CAR_TRAFFIC_LIGHT_RED_PIN_ID = 2;
 
 // defines the timer delay value
@@ -34,6 +35,7 @@ const uint8_t TIMER_DELAY_INTERVAL_IN_MS = 250;
 // How many delays needed per traffic light phase ==> here it is 50 as we need 5 seconds time per phase
 const uint8_t TRAFFIC_LIGHT_DELAYS_COUNT = 20 ;
 
+// defines the systmed frequency
 const uint8_t SYSTEM_FREQ_IN_MHZ = 1;
 
 
@@ -56,6 +58,10 @@ static void run_car_traffic_light_red_phase();
 static void run_car_traffic_light_yellow_to_green_phase();
 
 
+
+/************************************************************************/
+/* Functions definitions                        */
+/************************************************************************/
 // init function for the application
 void app_init(void)
 {   
@@ -95,6 +101,7 @@ static void run_car_traffic_light_green_phase()
 {
 	uint8_t Traffic_light_delay_counter = TRAFFIC_LIGHT_DELAYS_COUNT;
 
+  // init car traffic light state
 	g_car_traffic_light_state = CAR_TRAFFIC_LIGHT_STATE_GREEN;
   
 	if(g_system_mode == SYSTEM_MODE_NORMAL)
@@ -109,8 +116,10 @@ static void run_car_traffic_light_green_phase()
     is_button_pressed = FALSE;
   }
 	
+  // delay loop
 	while (Traffic_light_delay_counter-- != 0)
-	{		
+	{
+    // if system state changed durinf the loop we immedietly break to give pedestrians priority
 		if(g_system_mode == SYSTEM_MODE_PEDESTRIAN_CROSSING)
 		{
       // clean up the flag anyway as it is not needed here
@@ -121,7 +130,8 @@ static void run_car_traffic_light_green_phase()
     timer_al_delay(TIMER_DELAY_INTERVAL_IN_MS);
     
 	}
-			
+  
+  // Exit the green light state
 	led_off(CAR_TRAFFIC_LIGHT_GREEN_PORT_ID, CAR_TRAFFIC_LIGHT_GREEN_PIN_ID);
 	led_off(CROSS_WALK_LIGHT_RED_PORT_ID, CROSS_WALK_LIGHT_RED_PIN_ID);
 	
@@ -131,20 +141,24 @@ static void run_car_traffic_light_yellow_to_red_phase()
 {
 	uint8_t Traffic_light_delay_counter = TRAFFIC_LIGHT_DELAYS_COUNT;
 	
+  // init car traffic light state
 	g_car_traffic_light_state = CAR_TRAFFIC_LIGHT_STATE_YELLOW_TO_RED;
 	
 	led_on(CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID, CAR_TRAFFIC_LIGHT_YELLOW_PIN_ID);  
   
 	if(g_system_mode == SYSTEM_MODE_NORMAL)
   {
+    // in Normal mode the pedestrian lights are always red
     led_on(CROSS_WALK_LIGHT_RED_PORT_ID, CROSS_WALK_LIGHT_RED_PIN_ID);
   }
   else
 	{
+    // in pedestrian crossing mode we blink yellow
   	led_on(CROSS_WALK_LIGHT_YELLOW_PORT_ID, CROSS_WALK_LIGHT_YELLOW_PIN_ID);
     is_button_pressed = FALSE;
 	}
 	
+  // delay loop
 	while (Traffic_light_delay_counter-- != 0)
 	{
 		timer_al_delay(TIMER_DELAY_INTERVAL_IN_MS);
@@ -168,6 +182,7 @@ static void run_car_traffic_light_yellow_to_red_phase()
 		
 	}
 	
+  // exit the yellow to red state
 	led_off(CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID, CAR_TRAFFIC_LIGHT_YELLOW_PIN_ID);
 	led_off(CROSS_WALK_LIGHT_YELLOW_PORT_ID, CROSS_WALK_LIGHT_YELLOW_PIN_ID);
   led_off(CROSS_WALK_LIGHT_RED_PORT_ID, CROSS_WALK_LIGHT_RED_PIN_ID);
@@ -179,25 +194,31 @@ static void run_car_traffic_light_red_phase()
 	// loop counter
 	uint8_t Traffic_light_delay_counter = TRAFFIC_LIGHT_DELAYS_COUNT;
 	
+  // init car traffic light state
 	g_car_traffic_light_state = CAR_TRAFFIC_LIGHT_STATE_RED;
 	
 	led_on(CAR_TRAFFIC_LIGHT_RED_PORT_ID, CAR_TRAFFIC_LIGHT_RED_PIN_ID);
 			
 	if(g_system_mode == SYSTEM_MODE_NORMAL)
   {
+    // in Normal mode the cross walk light is always red
      led_on(CROSS_WALK_LIGHT_RED_PORT_ID, CROSS_WALK_LIGHT_RED_PIN_ID);
   }
   else
 	{
+    // in pedestrian crossing mode the cross walk light should be green
 		led_on(CROSS_WALK_LIGHT_GREEN_PORT_ID, CROSS_WALK_LIGHT_GREEN_PIN_ID);
     
     is_button_pressed = FALSE;
 	}
 	
+  // delay loop
 	while (Traffic_light_delay_counter-- != 0)
 	{
 		timer_al_delay(TIMER_DELAY_INTERVAL_IN_MS);
     
+    /*if the Pedestrian pressed the button we turn the pedestrian light green immedielty and
+     give the pedesterian enough time to cross the street */
     if(is_button_pressed == TRUE)
     {
       // reset the red light timer to give the pedestrians enough time
@@ -210,6 +231,7 @@ static void run_car_traffic_light_red_phase()
     }
 	}
 			
+  // exit the red light state
 	led_off(CAR_TRAFFIC_LIGHT_RED_PORT_ID, CAR_TRAFFIC_LIGHT_RED_PIN_ID);
 			
 	led_off(CROSS_WALK_LIGHT_GREEN_PORT_ID, CROSS_WALK_LIGHT_GREEN_PIN_ID);
@@ -221,6 +243,7 @@ static void run_car_traffic_light_yellow_to_green_phase()
 {
 	uint8_t Traffic_light_delay_counter = TRAFFIC_LIGHT_DELAYS_COUNT;
 	
+  // init car traffic light state
 	g_car_traffic_light_state = CAR_TRAFFIC_LIGHT_STATE_YELLOW_TO_GREEN;
 	
 	led_on(CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID, CAR_TRAFFIC_LIGHT_YELLOW_PIN_ID);
@@ -228,9 +251,11 @@ static void run_car_traffic_light_yellow_to_green_phase()
   
 	if(g_system_mode == SYSTEM_MODE_PEDESTRIAN_CROSSING)
 	{
+    // In Pedestrian crossing mode the Pedestrian yello led blinks
 		led_on(CROSS_WALK_LIGHT_YELLOW_PORT_ID, CROSS_WALK_LIGHT_YELLOW_PIN_ID);
 	}
 	
+  // delay loop
 	while (Traffic_light_delay_counter-- != 0)
 	{
     
@@ -248,6 +273,7 @@ static void run_car_traffic_light_yellow_to_green_phase()
 		}
 	}
 	
+  // exit the yellow to green light state
 	led_off(CAR_TRAFFIC_LIGHT_YELLOW_PORT_ID, CAR_TRAFFIC_LIGHT_YELLOW_PIN_ID);
 	led_off(CROSS_WALK_LIGHT_YELLOW_PORT_ID, CROSS_WALK_LIGHT_YELLOW_PIN_ID);
   led_off(CROSS_WALK_LIGHT_RED_PORT_ID, CROSS_WALK_LIGHT_RED_PIN_ID);
@@ -280,7 +306,7 @@ void app_run(void)
 
 	while (1)
 	{
-		
+		// run the traffic lights states in order
 		run_car_traffic_light_green_phase();
 		
 		run_car_traffic_light_yellow_to_red_phase();
